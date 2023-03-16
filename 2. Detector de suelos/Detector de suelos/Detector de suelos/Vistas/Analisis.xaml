@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Detector_de_suelos.Analisis" Title="Análisis">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#2ECCFA"></Setter>
+                <Setter Property="TextColor" Value="#FFFFFF"></Setter>
+                <Setter Property="CornerRadius" Value="20"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Image Source="Fondo.jpg" Aspect="AspectFill"></Image>
+        <Frame CornerRadius="20" VerticalOptions="Center" Margin="20" HasShadow="False" Padding="20" BackgroundColor="#DDFFFFFF">
+            <ScrollView Orientation="Vertical">
+                <StackLayout Padding="0" Spacing="10">
+                    <Image x:Name="Imagen" HorizontalOptions="Center"></Image>
+                    <Button Text="Analizar" HeightRequest="60" Clicked="Clasificar"></Button>
+                    <Label x:Name="Respuesta" FontSize="20" TextColor="Gray"></Label>
+                    <ListView x:Name="Lista" Header="">
+                        <ListView.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Label Text="LISTA DE PREDICCIONES"
+                                           HorizontalTextAlignment="Center"
+                                           FontAttributes="Bold"
+                                           FontSize="20" TextColor="Gray"
+                                           HorizontalOptions="FillAndExpand"/>
+                                </Grid>  
+                            </DataTemplate>  
+                        </ListView.HeaderTemplate>  
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding TagName}"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="20" TextColor="Gray"
+                                               HorizontalOptions="FillAndExpand"/>      
+
+                                        <Label Text="->"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="20" TextColor="Gray"
+                                               HorizontalOptions="FillAndExpand"/>
+
+                                        <Label Text="{Binding Probability}"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="20" TextColor="Gray"
+                                               HorizontalOptions="FillAndExpand"/>
+
+                                        <Label Text="%"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="20" TextColor="Gray"
+                                               HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+        
+</ContentPage>
