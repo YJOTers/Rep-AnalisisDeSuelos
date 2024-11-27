@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Detector_de_suelos.Inicio" Title="Inicio">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#2ECCFA"></Setter>
+                <Setter Property="TextColor" Value="#FFFFFF"></Setter>
+                <Setter Property="CornerRadius" Value="20"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Image Source="Fondo.jpg" Aspect="AspectFill"></Image>
+        <Frame CornerRadius="20" VerticalOptions="Center" Margin="20" HasShadow="False" Padding="20" BackgroundColor="#DDFFFFFF">
+            <StackLayout Padding="0" Spacing="10">
+                <Label Text="¡Descubre si este terreno es factible para sembrar cacao!" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Elige una foto para analizar la fertilidad y profundidad del suelo."></Label>
+                <Button Text="Elegir una imagen" HeightRequest="60" Clicked="ElegirImage"></Button>
+                <Button Text="Tomar una foto" HeightRequest="60" Clicked="TomarFoto"></Button>
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>
